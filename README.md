@@ -17,15 +17,15 @@ The `--save` automatically adds the module to your `package.json` definition.
 
 You require the module as any other node.js module:
 ```js
-	var EmailHunter = require('email-hunter');
+var EmailHunter = require('email-hunter');
 ```
 Then create a new instance with your API key
 ```js
-	var em = new EmailHunter('YOUR API KEY');
+var em = new EmailHunter('YOUR API KEY');
 ```
 You can also use that directly
 ```js
-	var em = require('email-hunter')('YOUR API KEY');
+var em = require('email-hunter')('YOUR API KEY');
 ```
 
 Note: Your secret API key, you can generate it in your dashboard from https://emailhunter.co
