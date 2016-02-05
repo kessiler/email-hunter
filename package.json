@@ -4,7 +4,8 @@
   "description": "A tiny nodejs wrapper around Email Hunter API",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/"
+    "test": "./node_modules/mocha/bin/mocha test/",
+    "build": "browserify index.js -s email-hunter -o dist/email-hunter.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "restler": "^3.4.0"
   },
   "devDependencies": {
+    "browserify": "^13.0.0",
     "mocha": "^2.4.5"
   }
 }
