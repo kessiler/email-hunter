@@ -4,25 +4,26 @@
   "description": "A tiny nodejs wrapper around Email Hunter API",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha test/"
+    "test": "./node_modules/mocha/bin/mocha test/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kessiler/email-hunter.git"
   },
   "keywords": [
-    "Email",
-    "Hunter",
-    "API",
-    "REST"
+    "email",
+    "hunter",
+    "wrapper",
+    "api",
+    "rest"
   ],
-  "author": "Kessiler Rodrigues",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kessiler/email-hunter/issues"
   },
-  "homepage": "https://github.com/kessiler/email-hunter#readme",
+  "homepage": "https://github.com/kessiler/email-hunter",
   "dependencies": {
+    "extend": "^3.0.0",
     "q": "^1.4.1",
     "qs": "^6.1.0",
     "restler": "^3.4.0"
