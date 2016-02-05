@@ -12,6 +12,13 @@ describe('Email Hunter Test Suite', function () {
         });
     });
 
+    it('search API by domain with extra params', function (done) {
+        em.searchByDomain('google.com', {offset: 10}).then(function (result) {
+            assert.equal(result.status, 'success');
+            done();
+        });
+    });
+
     it('search API by company name expect status success', function (done) {
         em.searchByCompany('Stripe').then(function (result) {
             assert.equal(result.status, 'success');
