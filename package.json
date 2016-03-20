@@ -12,8 +12,10 @@
     "url": "git+https://github.com/kessiler/email-hunter.git"
   },
   "keywords": [
-    "email",
+    "emailhunter",
     "hunter",
+    "hunt",
+    "email",
     "wrapper",
     "api",
     "rest"
