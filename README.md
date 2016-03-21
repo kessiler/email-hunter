@@ -1,4 +1,7 @@
 # email-hunter
+[![Build Status](http://img.shields.io/travis/kessiler/email-hunter.svg?style=flat)](https://travis-ci.org/kessiler/email-hunter)
+[![DevDependencies Status](http://img.shields.io/david/dev/kessiler/email-hunter.svg?style=flat)](https://david-dm.org/kessiler/email-hunter#info=devDependencies)
+
 `email-hunter` is a tiny node wrapper around Email Hunter API (https://emailhunter.co/)
 
 [![NPM](https://nodei.co/npm/email-hunter.png)](https://npmjs.org/package/email-hunter)
