@@ -1,6 +1,9 @@
 # email-hunter
 `email-hunter` is a tiny node wrapper around Email Hunter API (https://emailhunter.co/)
 
+[![NPM](https://nodei.co/npm/email-hunter.png)](https://npmjs.org/package/email-hunter)
+
+
 ## Installation
 
 The module is distributed through npm (node package manager) and can be
