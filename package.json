@@ -28,11 +28,11 @@
   "dependencies": {
     "extend": "^3.0.0",
     "q": "^1.4.1",
-    "qs": "^6.1.0",
+    "qs": "^6.2.1",
     "restler": "^3.4.0"
   },
   "devDependencies": {
-    "browserify": "^13.0.0",
-    "mocha": "^2.4.5"
+    "browserify": "^13.1.0",
+    "mocha": "^2.5.3"
   }
 }
