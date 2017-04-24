@@ -40,16 +40,16 @@ describe('Email Hunter Test Suite', function () {
         });
     });
 
-    it('expect dschulman@hubspot.com API generate email by domain', function (done) {
-        em.generateByDomain('paypal.com', 'Dan', 'Schulman').then(function (result) {
-            assert.equal(result.email, 'dschulman@paypal.com');
+    it('expect dustin@asana.com API generate email by domain', function (done) {
+        em.generateByDomain('asana.com', 'Dustin', 'Moskovitz').then(function (result) {
+            assert.equal(result.email, 'dustin@asana.com');
             done();
         });
     });
 
-    it('expect krodrigues@testd.com API generate email by company', function (done) {
-        em.generateByCompany('PayPal', 'Dan', 'Schulman').then(function (result) {
-            assert.equal(result.email, 'dschulman@paypal.com');
+    it('expect dustin@asana.com API generate email by company', function (done) {
+        em.generateByCompany('Asana', 'Dustin', 'Moskovitz').then(function (result) {
+            assert.equal(result.email, 'dustin@asana.com');
             done();
         });
     });
