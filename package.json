@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/kessiler/email-hunter",
   "dependencies": {
-    "request": "^2.82.0"
+    "axios": "^0.16.2"
   },
   "devDependencies": {
     "browserify": "^13.1.0",
