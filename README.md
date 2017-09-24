@@ -33,6 +33,17 @@ const hunter = require('email-hunter')('YOUR API KEY');
 
 Note: Your secret API key, you can generate it in your dashboard from https://hunter.io/api_keys
 
+## Upgrade
+If you are upgrading from the __v1.0.0__ to __v2.0.0__ check if the methods you used from the first version __still exists__ and if they are ensure to change the call structure from this, which is based on Promises:
+```js
+em.searchByDomain(input).then().catch();
+```
+to this new structure that __does not return a Promise but instead accepts a callback__ that gets excuted once the call has complete:
+```js
+em.domainSearch(input, callback);
+em.domainSearch(input, (err, res) => { });
+```
+
 ## Methods
 * __domainSearch__: You give one domain name and it returns all the email addresses using this domain name found on the internet.
 * __emailFinder__: This API endpoint generates the most likely email address from a domain name, a first name and a last name.
