@@ -1,11 +1,16 @@
 {
   "name": "email-hunter",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "A tiny nodejs wrapper around Email Hunter API",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/",
-    "build": "browserify index.js -s email-hunter -o dist/email-hunter.js"
+    "prepublish": "nsp check",
+    "pretest": "eslint . --fix",
+    "test": "jest --coverage",
+    "build": "browserify ./lib/index.js -s email-hunter -o dist/email-hunter.js"
   },
   "repository": {
     "type": "git",
@@ -26,13 +31,31 @@
   },
   "homepage": "https://github.com/kessiler/email-hunter",
   "dependencies": {
-    "extend": "^3.0.0",
-    "q": "^1.4.1",
-    "qs": "^6.2.1",
-    "restler": "^3.4.0"
+    "axios": "^0.16.2"
   },
   "devDependencies": {
     "browserify": "^13.1.0",
-    "mocha": "^2.5.3"
-  }
+    "coveralls": "^2.13.1",
+    "eslint": "^4.1.0",
+    "eslint-config-xo-space": "^0.16.0",
+    "jest": "^21.1.0",
+    "jest-cli": "^21.1.0",
+    "nock": "^9.0.18",
+    "nsp": "^2.6.3"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "rules": {
+      "camelcase": 1
+    },
+    "env": {
+      "jest": true,
+      "node": true
+    }
+  },
+  "eslintIgnore": [
+    "dist/",
+    "node_modules/",
+    "coverage/"
+  ]
 }

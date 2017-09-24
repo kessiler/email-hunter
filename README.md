@@ -16,100 +16,90 @@ installed using:
 npm install email-hunter --save
 ```
 
-The `--save` automatically adds the module to your `package.json` definition.
-
-
-## Usage
+## How to use it
 
 You require the module as any other node.js module:
 ```js
-var EmailHunter = require('email-hunter');
+const EmailHunter = require('email-hunter');
 ```
 Then create a new instance with your API key
 ```js
-var em = new EmailHunter('YOUR API KEY');
+const hunter = new EmailHunter('YOUR API KEY');
 ```
 You can also use that directly
 ```js
-var em = require('email-hunter')('YOUR API KEY');
+const hunter = require('email-hunter')('YOUR API KEY');
 ```
 
-Note: Your secret API key, you can generate it in your dashboard from https://emailhunter.co
+Note: Your secret API key, you can generate it in your dashboard from https://hunter.io/api_keys
 
-
-## Domain search API
-Returns all the email addresses found using one given domain name, with our sources.
+## Upgrade
+If you are upgrading from the __v1.0.0__ to __v2.0.0__ check if the methods you used from the first version __still exists__ and if they are ensure to change the call structure from this, which is based on Promises:
 ```js
-em.searchByDomain('stripe.com').then(function(result) {
-    console.log(result);
-}).catch(function(err) {
-    console.log(err);
-});
+em.searchByDomain(input).then().catch();
+```
+to this new structure that __does not return a Promise but instead accepts a callback__ that gets excuted once the call has complete:
+```js
+em.domainSearch(input, callback);
+em.domainSearch(input, (err, res) => { });
 ```
 
-## Company search API
+## Methods
+* __domainSearch__: You give one domain name and it returns all the email addresses using this domain name found on the internet.
+* __emailFinder__: This API endpoint generates the most likely email address from a domain name, a first name and a last name.
+* __emailVerifier__: This API endpoint allows you to verify the deliverability of an email address.
+* __emailCount__: This API endpoint allows you to know how many email addresses we have for one domain.
+* __account__: This API endpoint enables you to get information regarding your Hunter account at any time.
+
+---
+
+### Domain Search
 Returns all the email addresses found using one given company name, with our sources.
 ```js
-em.searchByCompany('Stripe').then(function(result) {
-    console.log(result);
-}).catch(function(err) {
-    console.log(err);
-});
+hunter.domainSearch({
+  domain: 'example.com',
+  company: 'Example Company'
+}, (err, result) => { });
 ```
 
-## Email Verify API
+### Email Finder
+It find the most likely email address from a domain name, a first name and a last.
+```js
+hunter.emailFinder({
+  full_name: 'John Doe',
+  domain: 'example.com',
+  company: 'Example Company'
+}, (err, result) => { });
+```
+
+### Email Verifier
 Allows you to verify the deliverability of an email address.
 ```js
-em.verify('kessiler@hotmail.com').then(function(result) {
-    console.log(result);
-}).catch(function(err) {
-    console.log(err);
-});
+hunter.emailVerifier('test@mail.com', (err, result) => { });
+
+hunter.emailVerifier({
+  email: 'test@mail.com'
+}, (err, result) => { });
 ```
 
-## Email Count API
+### Email Count
 Allows you to know how many email addresses we have for one domain.
 ```js
-em.count('stripe.com').then(function(result) {
-    console.log(result);
-}).catch(function(err) {
-    console.log(err);
-});
-```
-## Email Finder / Generate by Domain API
-Generates the most likely email address from a domain name, a first name and a last name.
-```js
-em.generateByDomain('stripe.com', 'kessiler', 'rodrigues').then(function(result) {
-    console.log(result);
-}).catch(function(err) {
-    console.log(err);
-});
+hunter.emailCount('example.com', (err, result) => { });
+
+hunter.emailCount({
+  domain: 'example.com'
+}, (err, result) => { });
 ```
 
-## Email Finder / Generate by Company API
-Generates the most likely email address from a company name, a first name and a last name.
-```js
-em.generateByCompany('Stripe', 'kessiler', 'rodrigues').then(function(result) {
-    console.log(result);
-}).catch(function(err) {
-    console.log(err);
-});
-```
-
-## Account information API
+### Account information
 Allows you to get information regarding your Email Hunter account at any time.
 ```js
-em.account().then(function(result) {
-    console.log(result);
-}).catch(function(err) {
-    console.log(err);
-});
+hunter.account((err, result) => { });
 ```
 
-Note: You can also use callbacks, whether you prefer. :)
-
 ## License
-The email-hunter is released under the MIT License.
+The __email-hunter__ is released under the MIT License.
 
 ## Contributing
 
