@@ -1,6 +1,6 @@
 {
   "name": "email-hunter",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "A tiny nodejs wrapper around Email Hunter API",
   "main": "./lib/index.js",
   "files": [
